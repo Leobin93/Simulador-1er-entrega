@@ -29,11 +29,13 @@ let cafes = [
     }
 ]
 
-//const prompt = require("prompt-sync")({siginit: true});
+let productos = []
+let carrito = []
+
 let pregunta = 0;
 
 do{
-    pregunta = parseInt(prompt("Si queres un: latte elegí 1, capu 2, moka 3, flatwhite 4"));
+    pregunta =  Number(prompt("Si queres un: latte elegí 1, capu 2, moka 3, flatwhite 4"));
 }
 while(pregunta !=1 && pregunta !=2 && pregunta !=3 && pregunta !=4);
 
@@ -41,6 +43,15 @@ function cafeElegido (indice){
     alert("tu café contiene: " + cafes[indice-1].descripción);
 }
 
+
 for(i=0; i<cafes.length; i++){
-    console.log("el café" + cafes[i].nombre + "contiene" + cafes[i].descripción + "y cuesta");
+    console.log("El café " + cafes[i].nombre + " contiene: " + cafes[i].descripción + " y cuesta: $" + cafes[i].precio);
 }
+
+cafeElegido(pregunta);
+
+
+productos.push("latte");
+productos.push("capu");
+
+console.log(productos);
