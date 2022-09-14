@@ -34,6 +34,7 @@ class Cafe {
         const btnAgregar = document.getElementById(this.id);
         const productoEncontrado = productos.find(product => product.id == this.id);
         btnAgregar.addEventListener('click', () => agregarAlCarrito(productoEncontrado));
+        
       }
     }
 
@@ -53,7 +54,7 @@ productos.forEach(e => {
 })
 
 function agregarAlCarrito(producto) {
-
+  console.log("haciendo click en agregar al carrito");
   let enCarrito = carrito.find(prod => prod.id == producto.id)
   
   if(!enCarrito){
