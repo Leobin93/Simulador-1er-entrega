@@ -43,7 +43,6 @@ let cafe2 = new Cafe("capu", "café, leche y espuma", "mediano", 450, "./Imagene
 let cafe3 = new Cafe("moka", "café, leche y chocolate", "grande", 450, "./Imagenes/moka.jpg", 03);
 let cafe4 = new Cafe("flatwhite", "cafe doble y leche", "mediano", 500, "./Imagenes/flatwhite.jpg", 04);
 
-
 productos.push(cafe1, cafe2, cafe3, cafe4);
 
 productos.forEach(e => {
@@ -54,7 +53,7 @@ productos.forEach(e => {
 })
 
 function agregarAlCarrito(producto) {
-  console.log("haciendo click en agregar al carrito");
+  console.log("haciendo click en agregar al carrito"); //Se agrega evento haciendo click en agregar al carrito
   let enCarrito = carrito.find(prod => prod.id == producto.id)
   
   if(!enCarrito){
@@ -72,4 +71,9 @@ function agregarAlCarrito(producto) {
 }
 const contador = document.getElementById('cartCounter')
 contador.innerHTML = carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
+
+
+const datos = (clave, valor) => { localStorage.setItem(clave, valor) }; //Se almacenan datos en Local Storage
+datos("cafe", JSON.stringify(productos));
+
 
