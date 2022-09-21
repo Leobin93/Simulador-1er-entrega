@@ -60,10 +60,7 @@ function agregarAlCarrito(producto) {
       carrito.push({...producto, cantidad: 1})
   } else {
       let carritoFiltrado = carrito.filter(prod => prod.id != producto.id)
-      carrito = [
-          ...carritoFiltrado, 
-          { ...enCarrito, cantidad: enCarrito.cantidad + 1}
-      ]
+      carrito = [...carritoFiltrado, { ...enCarrito, cantidad: enCarrito.cantidad + 1}]
   }
 
   contador.innerHTML =  carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
@@ -77,3 +74,10 @@ const datos = (clave, valor) => { localStorage.setItem(clave, valor) }; //Se alm
 datos("cafe", JSON.stringify(productos));
 
 
+const almacenados = JSON.parse(localStorage.getItem("cafe")); //Se recuperan datos almacenados
+const data = [];
+
+for(const objeto of almacenados)
+data.push(new Cafe(objeto));
+
+console.log(almacenados);
