@@ -1,4 +1,3 @@
-
 let productos = []
 let carrito = []
 
@@ -57,11 +56,11 @@ function agregarAlCarrito(producto) {
   let enCarrito = carrito.find(prod => prod.id == producto.id)
   
   if(!enCarrito){
-      carrito.push({...producto, cantidad: 1})
+      carrito.push({...producto, cantidad: 1}) //Operadores avanzados: Spread
   } else {
       let carritoFiltrado = carrito.filter(prod => prod.id != producto.id)
-      carrito = [...carritoFiltrado, { ...enCarrito, cantidad: enCarrito.cantidad + 1}]
-  }
+      carrito = [...carritoFiltrado, { ...enCarrito, cantidad: enCarrito.cantidad + 1}] //Operadores avanzados: Spread 
+  } 
 
   contador.innerHTML =  carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
   
