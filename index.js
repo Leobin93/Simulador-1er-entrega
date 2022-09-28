@@ -31,9 +31,19 @@ class Cafe {
         }
       agregarEvento(){
         const btnAgregar = document.getElementById(this.id);
+        btnAgregar.onclick = exito // Se agraga librería Sweet alert
+        function exito(){ 
+
+          Swal.fire({
+            title: "Éxito",
+            text: "Producto agregado",
+            icon: "success"
+          })
+        }
+
         const productoEncontrado = productos.find(product => product.id == this.id);
         btnAgregar.addEventListener('click', () => agregarAlCarrito(productoEncontrado));
-        
+          
       }
     }
 
